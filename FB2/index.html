@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <title>FB 2</title>
+    </head>
+    <body>
+        
+        <h1>HTML Forms</h1>
+
+        <label>
+            Angka 1 <br>
+            <input type="number" id="input1">
+        </label>
+
+        <br>
+        <br>
+
+        <label>
+            Angka 2 <br>
+            <input type="number" id="input2">
+        </label>
+
+        <h3>Hasil</h3>
+        <div id="hasil">0</div>
+
+        <div id="operator">
+            <button id="tambah">+</button>
+            <button id="kurang">-</button>
+            <button id="bagi">/</button>
+            <button id="kali">x</button>
+        </div>
+
+        <script>
+            var hasil = document.getElementById("hasil")
+            var input1 = document.getElementById("input1")
+            var input2 = document.getElementById("input2")
+
+            function hitungTambah() {
+                hasil.textContent = Number(input1.value) + Number(input2.value)
+            }
+            function hitungKurang() {
+                hasil.textContent = Number(input1.value) - Number(input2.value)
+            }
+            function hitungBagi() {
+                hasil.textContent = Number(input1.value) / Number(input2.value)
+            }
+            function hitungKali() {
+                hasil.textContent = Number(input1.value) * Number(input2.value)
+            }
+
+            document.getElementById("tambah").onclick = hitungTambah
+            document.getElementById("kurang").onclick = hitungKurang
+            document.getElementById("bagi").onclick = hitungBagi
+            document.getElementById("kali").onclick = hitungKali
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <title>Kalkulator Sederhana FB2</title>
+        <style>
+        
+        .wrapper {
+            width: 500px;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+        }
+
+        input, select {
+            border:none;
+            background: white;
+            padding: 20px;
+            text-align: center;
+            outline: none!important;
+        }
+
+        input:disabled {
+            display: block;
+            width: 100%;
+            text-align: center;
+            font-size: 35px;
+        }
+
+        input:not(:disabled) {
+            border-bottom: 1px solid gray;
+        }
+
+        button {
+            display: inline-block;
+            border: none;
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            color: white;
+            background: black;
+            cursor: pointer;
+            margin-top: 20px;
+            outline: none!important;
+            box-shadow: 0 15px 40px -6px rgba(0,0,0,.5);
+        }
+        
+        </style>
+    </head>
+    <body>
+        
+        <div class="wrapper">
+            <div>Hasil</div>
+            <input type="text" disabled value="0">
+            <input type="number" placeholder="Number 1">
+            <select>
+                <option>+</option>
+                <option>-</option>
+                <option>x</option>
+                <option>/</option>
+            </select>
+            <input type="number" placeholder="Number 2">
+            <button>=</button>
+            <button>C</button>
+        </div>
+
+        <script>
+        
+        
+        var hasil, input1, input2, operator, btnHasil, btnReset;
+
+        hasil = document.querySelectorAll("input")[0];
+        input1 = document.querySelectorAll("input")[1];
+        input2 = document.querySelectorAll("input")[2];
+        operator = document.querySelectorAll("select")[0];
+        btnHasil = document.querySelectorAll("button")[0];
+        btnReset = document.querySelectorAll("button")[1];
+
+        function hitung(){
+            if( operator.value === "+"){
+                hasil.value = Number(input1.value) + Number(input2.value);
+            }else if( operator.value === "-"){
+                hasil.value = Number(input1.value) - Number(input2.value);
+            }else if( operator.value === "x"){
+                hasil.value = Number(input1.value) * Number(input2.value);
+            }else if( operator.value === "/"){
+                hasil.value = Number(input1.value) / Number(input2.value);
+            }
+        }
+
+        function reset(){
+            hasil.value = 0;
+            input1.value = 0;
+            input2.value = 0;
+        }
+
+        btnHasil.addEventListener("click", hitung);
+        btnReset.addEventListener("click", reset);
+        
+        </script>
+    </body>
+</html>
